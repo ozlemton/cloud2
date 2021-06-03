@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head>
+      <meta charset = "UTF-8">
+
+
+      <link rel = "stylesheet" href="style.css">
+      <title> 495 HW2 </title>
+   </head>
+   <body>
+      <header>
+         <h1>Home Page</h1>
+      </header>
+      <form action="/addgame" method="POST">
+         <fieldset>
+            <h3>Add Game</h3>
+            <label>Name</label>
+            <input type ="text" id = "name" name="name" required>
+            <br><br>
+            <label>Genre</label>
+            <input type="text" id = "genre" name="genre" required>
+            <br><br>
+            <label>Photo - Image Url</label>
+            <input type="text" id = "photo" name="photo" required>
+            <br><br>
+            <label>Company</label>
+            <input type="text" id = "game_op1" name="game_op1" >
+            <br><br>
+            <label>Storage Required</label>
+            <input type="text" id = "game_op2" name="game_op2" >
+            <br><br>
+            <button type ="submit">Submit</button>
+         </fieldset>
+      </form>
+
+      <form action="/removegame" method="POST">
+         <fieldset>
+            <h3>Remove Game</h3>
+         <select name="removeGameSelect" id="removeGameSelect">
+         <option value="" selected="selected">Select game to remove</option>
+           <% for(var i = 0; i < games.length; i++) {%>
+               <option value="<%= games[i].name %>"><%= games[i].name %></option>
+           <% } %>
+         </select>   
+            <br><br>
+            <button type ="submit">Delete</button>
+         </fieldset>
+      </form>
+
+      <form action="/disablegamerating" method="POST">
+         <fieldset>
+         <h3>Disable Rating and Comment</h3>
+         <select name="disableGameRatingSelect" id="disableGameRatingSelect">
+         <option value="" selected="selected">Select game to disable rating and comment</option>
+           <% for(var i = 0; i < games.length; i++) {%>
+               <option value="<%= games[i].name %>"><%= games[i].name %></option>
+           <% } %>
+         </select>   
+            <br><br>
+            <button type ="submit">Disable Game Rating and Comment</button>
+         </fieldset>
+      </form>
+
+      <form action="/enablegamerating" method="POST">
+         <fieldset>
+         <h3>Enable Rating and Comment</h3>
+         <select name="enableGameRatingSelect" id="enableGameRatingSelect">
+         <option value="" selected="selected">Select game to enable rating and comment</option>
+           <% for(var i = 0; i < games.length; i++) {%>
+               <option value="<%= games[i].name %>"><%= games[i].name %></option>
+           <% } %>
+         </select>   
+            <br><br>
+            <button type ="submit">Enable Game Rating and Comment</button>
+         </fieldset>
+      </form>
+
+      <form action="/adduser" method="POST">
+         <fieldset>
+            <h3>Add User</h3>
+            <label>Name</label>
+            <input type ="text" id = "name" name="name" required>
+            <br><br>
+            <button type ="submit">Add User</button>
+         </fieldset>
+      </form>
+
+      <form action="/removeuser" method="POST">
+         <fieldset>
+            <h3>Remove User</h3>
+         <select name="removeUserSelect" id="removeUserSelect">
+         <option value="" selected="selected">Select user to remove</option>
+           <% for(var i = 0; i < users.length; i++) {%>
+               <option value="<%= users[i].name %>"><%= users[i].name %></option>
+           <% } %>
+         </select>   
+            <br><br>
+            <button type ="submit">Delete User</button>
+         </fieldset>
+      </form>
+
+      <form action="/loginuser" method="GET">
+         <fieldset>
+            <h3>Login User</h3>
+         <select name="loginUserSelect" id="loginUserSelect">
+         <option value="" selected="selected">Select user to login</option>
+           <% for(var i = 0; i < users.length; i++) {%>
+               <option value="<%= users[i].name %>"><%= users[i].name %></option>
+           <% } %>
+         </select>   
+            <br><br>
+            <button type ="submit">Login User</button>
+         </fieldset>
+      </form>
+
+
+      <footer>
+         <hr>
+         <h4>Ozlem Tonkal Ceng 495 HW2
+</h4>
+      </footer>
+
+
+
+   </body>
+</html>

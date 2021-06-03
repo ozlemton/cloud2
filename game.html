@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head>
+      <meta charset = "UTF-8">
+         <script type="text/javascript">
+
+        window.onload = function(){
+
+        };
+        </script>
+
+      <link rel = "stylesheet" href="style.css">
+      <title> 495 HW2 </title>
+   </head>
+   <body>
+      <header>
+         <h1> Games Page</h1>
+      </header>
+
+
+<ul class="games">
+  <% for(var i = 0; i < games.length; i++) {%>
+    <li class="games">
+      <span><b> Name : </b><%= games[i].name %></span> 
+      <span><b> Genre(s) : </b><%= games[i].genre %></span> <br> <br>
+      <img src= <%= games[i].photo %> width="100" height="100"> <br> <br>
+      <span><b> Company : </b><%= games[i].game_op1 %></span>
+      <span><b> Storage Required : </b><%= games[i].game_op2 %></span>
+
+    </li>
+    <hr>
+  <% } %>
+</ul>
+
+
+
+
+
+
+
+      <footer>
+         <hr>
+         <h4>Ozlem Tonkal Ceng 495 HW2
+</h4>
+      </footer>
+
+
+
+   </body>
+</html>

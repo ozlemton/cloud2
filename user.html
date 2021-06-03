@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head>
+      <meta charset = "UTF-8">
+         <script type="text/javascript">
+
+        window.onload = function(){
+
+        };
+        </script>
+
+      <link rel = "stylesheet" href="style.css">
+      <title> 495 HW2 </title>
+   </head>
+   <body>
+      <header>
+         <h1> <%= username %>
+User Page</h1>
+      </header>
+
+
+<h2> User Profile </h2>
+
+<ul class="usergames">
+
+  <% if (gameuser.length == 0) {%>
+
+  <span><b> No Activity so far <b> <br><br>
+
+    <% } else { %>
+
+    <span><b> Average Rating : </b> <%= averageRating[0].rat %></span> <br><br>
+    <span><b> Total Play Time : </b> <%= totalPlayTime[0].ply %></span> <br><br>
+    <span><b> Most Played Game : </b> <%= mostPlayedGame[0]._id %></span> <br><br>
+    <span><b> Comments : </b> </span> <br>
+
+  <% for(var i = 0; i < gameuser.length; i++) {%>
+    <li class="games">
+
+      <span><b><%= gameuser[i].gamename %></b></span>: 
+
+      <span><%= gameuser[i].comment %></span>
+
+    </li>
+  <% } %>
+    <% } %>
+</ul>
+
+
+
+
+      <form action="/rategame" method="POST">
+         <fieldset>
+            <h3>Rate Game</h3>
+        <input type="hidden" id="rateGameUname" name="rateGameUname" value="<%= username %>">
+         <select name="rateGameSelect" id="rateGameSelect">
+         <option value="" selected="selected">Select a game to rate</option>
+           <% for(var i = 0; i < games.length; i++) {%>
+               <option value="<%= games[i].name %>"><%= games[i].name %></option>
+           <% } %>
+         </select>   
+         <select name="rateGameRatingSelect" id="rateGameRatingSelect">
+           <% for(var i = 1; i < 6; i++) {%>
+               <option value="<%= i %>"><%= i %></option>
+           <% } %>
+         </select>   
+            <br><br>
+            <button type ="submit">Rate</button>
+         </fieldset>
+      </form>
+
+
+      <form action="/playgame" method="POST">
+         <fieldset>
+            <h3>Play Game</h3>
+        <input type="hidden" id="playGameUname" name="playGameUname" value="<%= username %>">
+         <select name="playGameSelect" id="playGameSelect">
+         <option value="" selected="selected">Select a game to play</option>
+           <% for(var i = 0; i < games.length; i++) {%>
+               <option value="<%= games[i].name %>"><%= games[i].name %></option>
+           <% } %>
+         </select>
+         <br><br>   
+        <label>Enter play time</label>
+         <input type="text" id="playGame" name="playGame" value="" required>   
+            <br><br>
+            <button type ="submit">Play</button>
+         </fieldset>
+      </form>
+
+
+      <form action="/commentgame" method="POST">
+         <fieldset>
+            <h3>Comment on a Game</h3>
+        <input type="hidden" id="commentGameUname" name="commentGameUname" value="<%= username %>">
+         <select name="commentGameSelect" id="commentGameSelect">
+         <option value="" selected="selected">Select a game to comment</option>
+           <% for(var i = 0; i < games.length; i++) {%>
+               <option value="<%= games[i].name %>"><%= games[i].name %></option>
+           <% } %>
+         </select>
+         <br><br>   
+         <textarea rows="4" cols="50" id="commentGame" name="commentGame" required>Enter comment here...</textarea>   
+            <br><br>
+            <button type ="submit">Comment</button>
+         </fieldset>
+      </form>
+
+
+
+      <form action="/lookgames" method="GET">
+         <fieldset>
+            <h3>Look Games</h3>
+            <br><br>
+            <button type ="submit">Go to Games Page</button>
+         </fieldset>
+      </form>
+
+
+
+
+
+      <footer>
+         <hr>
+         <h4>Ozlem Tonkal Ceng 495 HW2
+</h4>
+      </footer>
+
+
+
+   </body>
+</html>

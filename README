@@ -1,0 +1,11 @@
+Author: Ozlem Tonkal
+Student ID: 1881531
+Language: node.js
+Website: https://true-node-311611.oa.r.appspot.com/
+Note: node.js version must be higher than 10.0
+
+How to run locally:
+	1- $> npm install
+	2- $> npm start
+	3- Open browser and go to localhost:8080
+
